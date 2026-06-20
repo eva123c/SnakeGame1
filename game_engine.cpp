@@ -22,4 +22,12 @@ void GameEngine::Run()
 
     _snake.Eat(_apple);
     std::cout << "After eating: " << _snake << std::endl;
+
+    _snake.SaveToFile("snake_save.json");
+    std::cout << "Snake state saved to snake_save.json" << std::endl;
+
+   
+    Snake loadedSnake;
+    loadedSnake.LoadFromFile("snake_save.json");
+    std::cout << "Loaded snake: " << loadedSnake << std::endl;
 }
